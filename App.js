@@ -1,75 +1,67 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { Touchable, TouchableOpacity } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Image source={{ uri: 'https://th.bing.com/th/id/OIP.3lQ8VqzNIPPtyekuLdzPqgHaHa?rs=1&pid=ImgDetMain' }} style={styles.phoneImage} />
-      <Text style={styles.productTitle}>Điện Thoại Vsmart Joy 3 - Hàng chính hãng</Text>
-      
-      <View style={{flex:1, flexDirection: 'row', alignItems:'center',justifyContent:'space-around'}}>
-        <Image source={require('./assets/star.png')}  />
-        <Image source={require('./assets/star.png')}  />
-        <Image source={require('./assets/star.png')}  />
-        <Image source={require('./assets/star.png')}  />
-        <Image source={require('./assets/star.png')}  />
+    <SafeAreaView style={styles.bigContainer}>
+        <Image style={styles.bigimg} source={require('./assets/imgs/bluephone.png')}/>
+        <Text style={styles.bigTitle}>Điện thoại Vsmart Joy 3- Hàng chính Hãng</Text>
+        <View style={styles.ratingBar}>
+            <View style={{flexDirection:'row'}}>
+            <Image source={require('./assets/imgs/star.png')}/> 
+            <Image source={require('./assets/imgs/star.png')}/> 
+            <Image source={require('./assets/imgs/star.png')}/> 
+            <Image source={require('./assets/imgs/star.png')}/> 
+            <Image source={require('./assets/imgs/star.png')}/>  
+            </View> 
+            <Text style={{fontSize:20}}>(Xem 828 đánh giá)</Text>
+        </View>
+        <View style={styles.prices}>
+            <Text style={{marginRight: 15,fontWeight:'bold',fontSize:35,color:'red'}} >1.790.000</Text>
+            <Text style={{marginTop: 8,fontWeight:'bold',fontSize:27,color:'grey',textDecorationLine:'line-through'}} >1.790.000</Text>
+        </View>
 
-        <Text style={styles.rating}>(Xem 828 đánh giá)</Text>
-      </View>
+        <TouchableOpacity style={{flexDirection:'row', alignItems:'center',justifyContent:'center',borderColor: 'black',borderWidth:1,backgroundColor:'white',borderRadius:10,height:50,width:'90%'}}>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+            <Text style={{alignSelf: 'center',fontSize:24}} >4 Màu - Chọn màu</Text>
+            <Image source={require('./assets/imgs/Vector.png')} style={{position:'absolute',left:240}} />
+          </View>
+        </TouchableOpacity>
 
-
-      <View style={{flex:2, flexDirection: 'row', alignItems:'center',justifyContent:'space-around'}}>
-      <View><Text style={styles.price}>1.790.000₫</Text></View>
-
-       <View><Text style={styles.old_price}>1.790.000₫</Text></View>
-      </View>
-
-      <View style={{flex:3,flexDirection:'colum',alignItems:'left',justifyContent:'left'}}>
-        <Text style={{fontFamily:'Roboto',fontSize:16,fontWeight:'bold',textAlign: 'left'}}>Ở đâu rẻ hơn hoàn tiền</Text>
-      </View>
-      
-      <Button style={styles.buy_button} title="Chọn Màu" onPress={() => {}} />
-      <Button style={styles.option_button} title="CHỌN MUA" onPress={() => {}} />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  bigContainer: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: '#fff',
+    justifyContent: 'felx-start',
+    alignItems: 'center',
+    padding: 10,
+  },
+  bigimg: {
+    width: 320,  
+    height: 400,
+    marginBottom: 10,
+  },
+  bigTitle: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginVertical: 10,
+    textAlign: 'center',
+  },
+  ratingBar: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  phoneImage: {
-    marginTop:0,
-    width: 300,
-    height: 300,
-  },
-  productTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
     marginVertical: 10,
   },
-  rating: {
-    fontSize: 16,
-    color: 'gray',
-  },
-  price: {
-    fontWeight:'bold',
-    fontSize: 24,
-    color: 'back',
-    marginRight:50,
-  },
-  old_price: {
-    fontSize: 24,
-    color: 'gray',
-    
-  },
-  buy_button: {
-    Color:'Red'
-  },
-  option_button: {
-    color:'back'
+  prices: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 10,
   },
 });
