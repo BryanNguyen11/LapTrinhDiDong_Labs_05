@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { Touchable, TouchableOpacity } from 'react-native';
-import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Image, SafeAreaView, StyleSheet, Text, View, ScrollView } from 'react-native';
+
 
 export default function App() {
   return (
     <SafeAreaView style={styles.bigContainer}>
+        
         <Image style={styles.bigimg} source={require('./assets/imgs/bluephone.png')}/>
         <Text style={styles.bigTitle}>Điện thoại Vsmart Joy 3- Hàng chính Hãng</Text>
         <View style={styles.ratingBar}>
@@ -34,6 +36,14 @@ export default function App() {
           </View>
         </TouchableOpacity>
 
+        <TouchableOpacity style={{position:'absolute',bottom:5,marginVertical:50,flexDirection:'row', alignItems:'center',marginTop:10,justifyContent:'center',backgroundColor:'red',borderRadius:10,height:50,width:'90%'}}>
+          <View style={{flexDirection:'row',alignItems:'center'}}>
+            <Text style={{alignSelf: 'center',fontSize:24,color:'white'}} >Chọn Mua</Text>
+            
+          </View>
+        </TouchableOpacity>
+       
+
     </SafeAreaView>
   );
 }
@@ -48,8 +58,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   bigimg: {
-    width: 320,  
-    height: 400,
+    width: 200,  
+    height: 250,
     marginBottom: 10,
   },
   bigTitle: {
